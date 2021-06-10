@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>login</title>
+    <style>
+      body {
+        background-color: #99ffdd;
+      }
+
+      .head {
+        color: #3fb996;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .abc {
+        display: inline;
+      }
+      .form-container {
+        /* margin: 100px auto; */
+        padding: 30px;
+        max-width: 350px;
+        background: white;
+        border-radius: 25px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        margin: 100px auto;
+        max-width: 350px;
+        /* background: white; */
+        box-sizing: border-box;
+      }
+
+      .form-container .head {
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .Inputs {
+        padding-top: 50px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      form label {
+        display: block;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: grey;
+        line-height: 30px;
+      }
+
+      input {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid rgb(133, 133, 133);
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-bottom: 20px;
+        width: 50%;
+        padding: 5px;
+        background: #3fb996;
+        border: hidden;
+        border-radius: 25px;
+        color: white;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .signup {
+        margin: 20px;
+        /* font-weight: bold; */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .signup a {
+        color: #3fb996;
+      }
+      .signup p {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="Inputs" method="post" action="">
+      {% csrf_token %}
+      <div class="container">
+        <div class="form-container">
+          <div class="head">
+            <h3>Login</h3>
+          </div>
+          {{form}}
+          <button type="submit">Login</button>
+          <div>{{ form.errors }}</div>
+          <div class="signup">
+            <p>
+              Didn't have a account ? <a href="{% url 'signup' %}">Sign Up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

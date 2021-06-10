@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>signup</title>
+    <style>
+      body {
+        background-color: #99ffdd;
+      }
+
+      .head {
+        color: #3fb996;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .form-container {
+        /* margin: 100px auto; */
+        padding: 30px;
+        max-width: 350px;
+        background: white;
+        box-sizing: border-box;
+        border-radius:25px;
+      }
+
+      .container {
+        margin: 100px auto;
+        max-width: 350px;
+        /* background: white; */
+        box-sizing: border-box;
+      }
+
+      .form-container .head {
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      form label {
+        display: block;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: grey;
+        line-height: 30px;
+      }
+
+      input {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid rgb(133, 133, 133);
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-bottom: 20px;
+        width: 50%;
+        padding: 5px;
+        background: #3fb996;
+        border: hidden;
+        border-radius: 25px;
+        color: white;
+        font-weight: bold;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .signup {
+        margin: 20px;
+        /* font-weight: bold; */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .signup a {
+        color: #3fb996;
+      }
+      .signup p {
+        color: #000;
+      }
+      .errorlist li {
+        color:red;
+      }
+    </style>
+   
+  </head>
+  <body>
+    <form method="post" action="">
+      {% csrf_token %}
+      <div class="container">
+        <div class="form-container">
+          <div class="head">
+            <h3>Sign Up</h3>
+          </div>
+            <label for="{{form.full_name.label}}">Full Name</label>
+            {{form.full_name}}
+
+            <label for="{{form.email.label}}">Email</label>
+            {{form.email}}
+
+            <label for="{{form.phone.label}}">Phone No</label>
+            {{form.phone}}
+
+            <label for="{{form.password1.label}}">Password</label>
+            {{form.password1}}
+
+            <button type="submit">Sign Up</button>
+
+            <div>{{ form.errors }}</div>
+          <div class="signup">
+            <p>
+              Already have a account ? <a href="{% url 'login' %}">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
